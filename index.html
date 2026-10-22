@@ -263,7 +263,7 @@ body.touch #dec .rc button{grid-template-columns:1fr auto}
 #hud{background:linear-gradient(rgba(15,23,42,.94),rgba(15,23,42,.86));border-bottom:2px solid var(--line);padding-bottom:10px}
 .gl .bub.think{display:flex;align-items:center;gap:2px;border-radius:16px;padding:3px 6px;position:relative}
 .gl .bub.think::after{content:'';position:absolute;left:50%;bottom:-6px;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:inherit}
-.gl .bub.think b{font-size:.9rem;padding:0 2px} .fi{display:inline-block;width:24px;height:24px} .fi svg{width:100%;height:100%;display:block}
+.gl .bub.think b{font-size:.9rem;padding:0 2px} .fi{display:inline-block;width:30px;height:30px;filter:drop-shadow(0 1px 0 rgba(15,23,42,.25))} .fi svg{width:100%;height:100%;display:block}
 .coinfly{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FEF08A,#F59E0B 70%);box-shadow:0 2px 4px rgba(0,0,0,.4);pointer-events:none;z-index:6}
 #h-cash.pop{animation:cpop .35s}
 @keyframes cpop{50%{transform:scale(1.35);color:#4ADE80}}
@@ -886,12 +886,12 @@ function pin(key, cls, x, y, z, html){ let d = labs.get(key); if(!d){ d = docume
   d.used = true; if(d.className !== cls) d.className = cls; const p = project(x, y * .75, z); if(!p){ d.style.display = 'none'; return; } d.style.display = '';
   if(d.h !== html){ d.innerHTML = html; d.h = html; }
   d.style.transform = `translate(${((p[0] * .5 + .5) * W).toFixed(1)}px,${((.5 - p[1] * .5) * H).toFixed(1)}px) translate(-50%,${cls.startsWith('gl') ? '-100%' : '-50%'})`; }
-const ICON = {burger:'<svg viewBox="0 0 24 24"><path d="M3 11a9 7 0 0 1 18 0z" fill="#F59E0B"/><rect x="3" y="12" width="18" height="3" rx="1.5" fill="#7C2D12"/><rect x="2.5" y="11.2" width="19" height="1.4" rx=".7" fill="#22C55E"/><path d="M3 16h18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z" fill="#F59E0B"/></svg>',
-  salad:'<svg viewBox="0 0 24 24"><circle cx="8" cy="10" r="4" fill="#4ADE80"/><circle cx="13" cy="8" r="4.5" fill="#22C55E"/><circle cx="17" cy="11" r="3.5" fill="#86EFAC"/><circle cx="11" cy="11" r="1.6" fill="#EF4444"/><path d="M2 12h20a10 8 0 0 1-20 0z" fill="#E0F2FE"/></svg>',
-  pancake:'<svg viewBox="0 0 24 24"><ellipse cx="12" cy="18" rx="9" ry="2.6" fill="#F59E0B"/><ellipse cx="12" cy="14.5" rx="9" ry="2.6" fill="#FBBF24"/><ellipse cx="12" cy="11" rx="9" ry="2.6" fill="#F59E0B"/><path d="M8 9.5q4-2 8 0v3q-1 2-2 0-2 1-3 0-1 2-3 0z" fill="#92400E"/><rect x="10.5" y="6.5" width="3" height="2.5" rx=".5" fill="#FEF3C7"/></svg>',
-  shake:'<svg viewBox="0 0 24 24"><path d="M6 8h12l-2 13H8z" fill="#C084FC"/><path d="M5 6h14v2.5H5z" fill="#F5F3FF"/><circle cx="12" cy="5" r="2.2" fill="#EF4444"/><rect x="13" y="1" width="1.4" height="7" fill="#F472B6" transform="rotate(15 13 4)"/></svg>',
-  pizza:'<svg viewBox="0 0 24 24"><path d="M12 22L2 5q10-5 20 0z" fill="#FBBF24"/><path d="M2 5q10-5 20 0l-1 2q-9-4-18 0z" fill="#B45309"/><circle cx="10" cy="10" r="1.7" fill="#DC2626"/><circle cx="14.5" cy="11" r="1.7" fill="#DC2626"/><circle cx="12" cy="15.5" r="1.5" fill="#DC2626"/></svg>',
-  pie:'<svg viewBox="0 0 24 24"><path d="M3 15l17-8v8z" fill="#FDBA74"/><path d="M3 15h17v4H3z" fill="#C2410C"/><path d="M3 15l17-8v2L4.5 15.5z" fill="#9A3412"/><circle cx="16" cy="5" r="2" fill="#FFFFFF"/></svg>'};
+const ICON = {burger:'<svg viewBox="0 0 48 48"><ellipse cx="24" cy="36" rx="16" ry="5.5" fill="#F6C56B"/><ellipse cx="24" cy="35" rx="16" ry="2.6" fill="#E7A23A"/><ellipse cx="24" cy="31" rx="13.5" ry="3.6" fill="#6B2A12"/><ellipse cx="25" cy="29" rx="14.5" ry="2.6" fill="#FBBF24"/><ellipse cx="24" cy="27" rx="15.5" ry="3" fill="#22C55E"/><ellipse cx="24" cy="25" rx="11" ry="2.2" fill="#EF4444"/><ellipse cx="24" cy="18" rx="17" ry="8" fill="#F8C15A"/><path d="M7 20a17 8 0 0 0 34 0" fill="#E8A317"/><ellipse cx="15" cy="14" rx="1.5" ry=".8" fill="#FFF7D6"/><ellipse cx="20" cy="12.6" rx="1.5" ry=".8" fill="#FFF7D6"/><ellipse cx="25" cy="13.4" rx="1.5" ry=".8" fill="#FFF7D6"/><ellipse cx="30" cy="12.4" rx="1.5" ry=".8" fill="#FFF7D6"/><ellipse cx="34.5" cy="15" rx="1.5" ry=".8" fill="#FFF7D6"/><ellipse cx="17" cy="15.5" rx="4" ry="1.8" fill="#fff" opacity=".5"/></svg>',
+  salad:'<svg viewBox="0 0 48 48"><ellipse cx="24" cy="32" rx="17" ry="8" fill="#E0F2FE"/><ellipse cx="24" cy="31" rx="15" ry="6" fill="none" stroke="#7DD3FC" stroke-width="1.6"/><ellipse cx="15" cy="26" rx="7" ry="4" fill="#16A34A" transform="rotate(-18 15 26)"/><ellipse cx="24" cy="24" rx="8" ry="4.2" fill="#22C55E"/><ellipse cx="33" cy="27" rx="6.5" ry="3.6" fill="#4ADE80" transform="rotate(16 33 27)"/><ellipse cx="22" cy="29" rx="6" ry="3" fill="#15803D"/><ellipse cx="30" cy="30" rx="5" ry="2.6" fill="#86EFAC"/><circle cx="19" cy="28" r="2.4" fill="#EF4444"/><circle cx="28" cy="27" r="1.8" fill="#FBBF24"/><ellipse cx="16" cy="24" rx="2.4" ry="1.2" fill="#fff" opacity=".45"/></svg>',
+  pancake:'<svg viewBox="0 0 48 48"><ellipse cx="24" cy="36" rx="16" ry="5" fill="#D97706"/><ellipse cx="20" cy="34.5" rx="6" ry="1.4" fill="#fff" opacity=".28"/><ellipse cx="24" cy="30" rx="16" ry="5" fill="#F59E0B"/><ellipse cx="20" cy="28.5" rx="6" ry="1.4" fill="#fff" opacity=".28"/><ellipse cx="24" cy="24" rx="16" ry="5" fill="#FBBF24"/><ellipse cx="20" cy="22.5" rx="6" ry="1.4" fill="#fff" opacity=".35"/><rect x="20" y="16" width="8" height="5" rx="1" fill="#FEF3C7"/><path d="M22 15c2-6 6-4 5 2-3 2-6 1-8 4 1-3 2-4 3-6z" fill="#92400E"/></svg>',
+  shake:'<svg viewBox="0 0 48 48"><path d="M14 18h20l-3.2 20H17.2z" fill="#E9D5FF"/><path d="M15.2 20h17.6l-2.6 16H17.8z" fill="#C084FC"/><path d="M17 24h3.2l-.6 10h-2z" fill="#fff" opacity=".4"/><rect x="12" y="15" width="24" height="5" rx="1.5" fill="#F5F3FF"/><ellipse cx="24" cy="14" rx="8" ry="4" fill="#fff"/><circle cx="28" cy="9" r="3" fill="#EF4444"/><path d="M27 8c2-1 3-2 3.2-3.4" fill="none" stroke="#166534" stroke-width="1.4" stroke-linecap="round"/><path d="M30 16l6-12" fill="none" stroke="#F9A8D4" stroke-width="2.4" stroke-linecap="round"/></svg>',
+  pizza:'<svg viewBox="0 0 48 48"><path d="M24 42 6 12c12-8 24-8 36 0z" fill="#FDE68A"/><path d="M8 14c11-6 21-6 32 0l-1.6 3.2c-10-5-19-5-29 0z" fill="#B45309"/><circle cx="18" cy="22" r="3.1" fill="#DC2626"/><circle cx="16.8" cy="20.8" r="1" fill="#fff" opacity=".4"/><circle cx="28" cy="20" r="3.1" fill="#DC2626"/><circle cx="26.8" cy="18.8" r="1" fill="#fff" opacity=".4"/><circle cx="23" cy="30" r="2.8" fill="#DC2626"/><circle cx="32" cy="28" r="2.4" fill="#DC2626"/><circle cx="16" cy="30" r="2.2" fill="#B91C1C"/></svg>',
+  pie:'<svg viewBox="0 0 48 48"><path d="M8 34 40 16v16z" fill="#C2410C"/><path d="M12 32 36 18v12z" fill="#FDBA74"/><path d="M14 31 34 20M18 32 36 24M22 33 37 27" fill="none" stroke="#9A3412" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="34" cy="16" rx="5" ry="3.2" fill="#fff" transform="rotate(18 34 16)"/><ellipse cx="32.5" cy="15" rx="1.6" ry="1" fill="#F8FAFC"/></svg>'};
 const foodIcon = k => `<i class="fi">${ICON[k] || ''}</i>`;
 const heartsHTML = g => { let h = ''; const n = Math.ceil(g.pat - .001); for(let k = 0; k < g.max; k++) h += `<i class="${k < n ? '' : 'o'}">♥</i>`; return `<span class="ht">${h}</span>`; };
 function labels(){ for(const d of labs.values()) d.used = false;
@@ -1102,7 +1102,7 @@ function tickEnts(dt){ const all = [chef.e, idleBot.e]; if(D){ all.push(D.waiter
   for(const e of all) if(e && e.em){ e.et += dt; const an = SK.anims[e.em]; if(!an || e.et > an.dur * e.reps) e.em = null; } }
 
 /* ---- the real MoneyBot characters: the studio 3D models, baked into flat sprite frames at load ---- */
-const SPR_SZ = 176, SPR = {}, BAKE_ANIMS = {idle:['Idle', 4], wave:['Wave', 5], cheer:['Cheer', 4], clap:['Clap', 3], face:['Facepalm', 4], think:['Think', 3]};
+const SPR_SZ = 256, SPR = {}, BAKE_ANIMS = {idle:['Idle', 4], wave:['Wave', 5], cheer:['Cheer', 4], clap:['Clap', 3], face:['Facepalm', 4], think:['Think', 3]};
 const SPR_CFG = {classic:['classic'], denim:['denim'], hoops:['hoops'], spider:['spider'], gold:['classic', [1.35, 1.02, .38]], lav:['classic', [.92, .86, 1.12]], pink:['hoops', [1.2, .75, 1]], couple:['classic', [1.15, .8, .92]], chef:['hoops', [1.08, 1.08, 1.08]], bus:['denim', [.9, 1.05, 1.1]]};
 let sprOK = false;
 function bakeSprites(){ const it = bakeSteps(); const tick = () => { const t0 = performance.now(); while(performance.now() - t0 < 12){ if(it.next().done) return; } setTimeout(tick, 0); }; tick(); }
@@ -1110,7 +1110,7 @@ function* bakeSteps(){
   if(!gl || !BOTS.classic) return;
   const cv = canvas; cv.width = cv.height = SPR_SZ; gl.viewport(0, 0, SPR_SZ, SPR_SZ);
   lookAt(0, 3.0, 11.5, 0, 1.85, 0); persp(cam.P, .46, 1, .5, 100); mul(cam.VP, cam.P, cam.V);
-  const setup = pr => { gl.useProgram(pr.p); const U = pr.u; gl.uniformMatrix4fv(U.uVP, false, cam.VP); gl.uniform3f(U.uSunDir, .35, .8, .55); gl.uniform3f(U.uSunCol, .55, .52, .48); gl.uniform3f(U.uSky, .78, .8, .9); gl.uniform3f(U.uGnd, .42, .42, .5);
+  const setup = pr => { gl.useProgram(pr.p); const U = pr.u; gl.uniformMatrix4fv(U.uVP, false, cam.VP); gl.uniform3f(U.uSunDir, .15, .92, .42); gl.uniform3f(U.uSunCol, 1.15, 1.05, .92); gl.uniform3f(U.uSky, 1.05, 1.08, 1.15); gl.uniform3f(U.uGnd, .55, .5, .46);
     gl.uniform3f(U.uFogCol, 0, 0, 0); gl.uniform3f(U.uFog, 500, 900, 0); gl.uniform3f(U.uWin, 0, 0, 0); gl.uniform1f(U.uA, 1); gl.uniform1i(U.uTex, 0); };
   setup(SKIN); setup(MAIN); for(let i = 1; i < 5; i++) gl.disableVertexAttribArray(i); for(let i = 0; i < 4; i++) gl.enableVertexAttribArray(i);
   gl.enable(gl.DEPTH_TEST); gl.disable(gl.BLEND); gl.disable(gl.CULL_FACE);
@@ -1125,13 +1125,18 @@ function* bakeSteps(){
         for(let y = 0; y < SPR_SZ; y++){ const sr = (SPR_SZ - 1 - y) * SPR_SZ * 4, dr = y * SPR_SZ * 4;
           for(let x = 0; x < SPR_SZ * 4; x += 4){ const a = 255 - (B[sr + x] - A[sr + x] + B[sr + x + 1] - A[sr + x + 1] + B[sr + x + 2] - A[sr + x + 2]) / 3; const al = clamp(a, 0, 255);
             d[dr + x + 3] = al; if(al > 2){ d[dr + x] = Math.min(255, A[sr + x] * 255 / al); d[dr + x + 1] = Math.min(255, A[sr + x + 1] * 255 / al); d[dr + x + 2] = Math.min(255, A[sr + x + 2] * 255 / al); } } }
-        fx.putImageData(im, 0, 0); SPR[ck][ak].push(fc); yield; prep(); } }
+        fx.putImageData(im, 0, 0); inkOutline(fx); SPR[ck][ak].push(fc); yield; prep(); } }
     if(ck === 'classic') SPR_PART = true; }
   // measure where the feet and the top of the head are, so sprites stand exactly on the floor
   { const im = SPR.classic.idle[0].getContext('2d').getImageData(0, 0, SPR_SZ, SPR_SZ).data; let top = SPR_SZ, bot = 0; for(let y = 0; y < SPR_SZ; y++) for(let x = 0; x < SPR_SZ; x++) if(im[(y * SPR_SZ + x) * 4 + 3] > 40){ if(y < top) top = y; if(y > bot) bot = y; } SPR_B.top = top; SPR_B.bot = bot; }
   sprOK = true;
 }
 let SPR_PART = false;
+function inkOutline(fx){ const w = SPR_SZ, im = fx.getImageData(0, 0, w, w), d = im.data, o = new Uint8ClampedArray(d);
+  for(let y = 1; y < w - 1; y++) for(let x = 1; x < w - 1; x++){ const i = (y * w + x) * 4; if(d[i + 3] > 28) continue;
+    let n = 0; for(const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) if(d[((y + dy) * w + x + dx) * 4 + 3] > 90) n++;
+    if(n){ o[i] = 15; o[i + 1] = 23; o[i + 2] = 42; o[i + 3] = Math.min(210, 70 * n); } }
+  im.data.set(o); fx.putImageData(im, 0, 0); }
 const SPR_B = {top:10, bot:180};
 const EMO2 = {Wave:'wave', Salute:'wave', Cheer:'cheer', Dab:'cheer', Flex:'cheer', DanceSide:'cheer', Flip:'cheer', Spin:'cheer', Clap:'clap', Facepalm:'face', ShakeHead:'face', Shrug:'face', Think:'think', Nod:'think', Bow:'think'};
 // draw a MoneyBot sprite standing at (x, y) screen px, h px tall
@@ -1149,8 +1154,8 @@ function botSprite(c, ck, e, x, y, h, o = {}){
 }
 
 // mood faces painted over the visor: happy, worried, angry, in love
-function moodEyes(c, s, m, t){ const X = px => (px - SPR_SZ / 2) * s, Y = py => (py - SPR_B.bot) * s, cy = Y(36.5), ex = [X(90), X(110)], ew = 7 * s, eh = 11 * s;
-  c.fillStyle = '#0B1222'; rr(c, X(77), Y(21), 46 * s, 31 * s, 8 * s); c.fill();
+function moodEyes(c, s, m, t){ const sc = SPR_SZ / 176, X = px => (px * sc - SPR_SZ / 2) * s, Y = py => (py * sc - SPR_B.bot) * s, cy = Y(36.5), ex = [X(90), X(110)], ew = 7 * sc * s, eh = 11 * sc * s;
+  c.fillStyle = '#0B1222'; rr(c, X(77), Y(21), 46 * sc * s, 31 * sc * s, 8 * sc * s); c.fill();
   c.lineCap = 'round'; c.lineWidth = Math.max(1.6, 3.2 * s);
   if(m === 'happy'){ c.strokeStyle = '#4ADE80'; c.shadowColor = '#4ADE80'; c.shadowBlur = 6 * s; for(const x of ex){ c.beginPath(); c.arc(x, cy + eh * .25, ew, Math.PI * 1.1, Math.PI * 1.9); c.stroke(); } }
   else if(m === 'love'){ c.fillStyle = '#F472B6'; c.shadowColor = '#F472B6'; c.shadowBlur = 6 * s; const b = 1 + Math.sin(t * 8) * .12; for(const x of ex){ const r = ew * .62 * b; c.beginPath(); c.moveTo(x, cy + r * 1.2); c.bezierCurveTo(x - r * 2, cy - r * .2, x - r * .7, cy - r * 1.7, x, cy - r * .5); c.bezierCurveTo(x + r * .7, cy - r * 1.7, x + r * 2, cy - r * .2, x, cy + r * 1.2); c.fill(); } }
@@ -1251,7 +1256,19 @@ function drawBG(){
   if(S && S.up.decor >= 2) for(const x of [-6.8, 6.4]){ const r = rect(c, x - .9, -10.95, x + .9, -9.35); c.fillStyle = '#B8860B'; rr(c, r[0] - 3, r[1] - 3, r[2] + 6, r[3] + 6, 3); c.fill(); c.fillStyle = x < 0 ? '#FEF3C7' : '#DBEAFE'; c.fillRect(r[0], r[1], r[2], r[3]); if(imgs.mb && imgs.mb.complete){ const s = Math.min(r[2], r[3]) * .85; c.drawImage(imgs.mb, r[0] + (r[2] - s) / 2, r[1] + (r[3] - s) / 2, s, s); } }
   if(S && S.up.tv){ const r = rect(c, -14.5, -4.4, -13.6, -1.6); c.fillStyle = '#0B1222'; rr(c, r[0] - 3, r[1] - 3, r[2] + 6, r[3] + 6, 4); c.fill(); }
   if(S && S.up.jukebox){ const j = P(13.1, 0, 1.2); c.fillStyle = lin(c, j[0] - k * .7, 0, j[0] + k * .7, 0, [[0, '#831843'], [.5, '#DB2777'], [1, '#831843']]); rr(c, j[0] - k * .75, j[1] - k * 1.9, k * 1.5, k * 2.1, [k * .75, k * .75, k * .12, k * .12]); c.fill(); c.fillStyle = '#1F2937'; rr(c, j[0] - k * .5, j[1] - k * 1.2, k * 1.0, k * .7, k * .1); c.fill(); }
+  counterDressing(c, k, T);
   bgDirty = false;
+}
+function counterDressing(c, k, T){
+  // clock, condiments, napkin tin, and two chrome stools. None of these are click targets.
+  const clock = P(-6.4, 0, -10.15); c.fillStyle = T.trim; c.beginPath(); c.arc(clock[0], clock[1], k * .42, 0, 7); c.fill(); c.fillStyle = '#F8FAFC'; c.beginPath(); c.arc(clock[0], clock[1], k * .32, 0, 7); c.fill();
+  c.strokeStyle = '#0F172A'; c.lineWidth = 2; c.beginPath(); c.moveTo(clock[0], clock[1]); c.lineTo(clock[0], clock[1] - k * .18); c.moveTo(clock[0], clock[1]); c.lineTo(clock[0] + k * .12, clock[1] + k * .04); c.stroke();
+  for(const [x, body, cap] of [[-4.2, '#DC2626', '#FECACA'], [-3.5, '#FACC15', '#FEF9C3']]){ const p = P(x, 1.2, -5.55); c.fillStyle = body; rr(c, p[0] - k * .1, p[1] - k * .28, k * .2, k * .42, k * .08); c.fill(); c.fillStyle = cap; c.beginPath(); c.moveTo(p[0] - k * .08, p[1] - k * .22); c.lineTo(p[0], p[1] - k * .48); c.lineTo(p[0] + k * .08, p[1] - k * .22); c.fill(); }
+  const nap = P(1.6, 1.2, -5.5); c.fillStyle = '#E2E8F0'; rr(c, nap[0] - k * .28, nap[1] - k * .16, k * .56, k * .28, 3); c.fill(); c.fillStyle = '#F8FAFC'; for(let i = 0; i < 4; i++) c.fillRect(nap[0] - k * .2, nap[1] - k * .1 + i * k * .05, k * .4, 2);
+  for(const x of [3.4, 7.2]){ const s = P(x, 0, -4.15), seat = P(x, .55, -4.15); c.fillStyle = 'rgba(15,23,42,.2)'; c.beginPath(); c.ellipse(s[0], s[1], k * .38, k * .14, 0, 0, 7); c.fill();
+    c.strokeStyle = T.chrome ? '#CBD5E1' : '#78716C'; c.lineWidth = 3; c.beginPath(); c.moveTo(seat[0] - k * .22, seat[1]); c.lineTo(s[0] - k * .28, s[1]); c.moveTo(seat[0] + k * .22, seat[1]); c.lineTo(s[0] + k * .28, s[1]); c.stroke();
+    c.fillStyle = lin(c, seat[0] - k * .4, 0, seat[0] + k * .4, 0, [[0, '#94A3B8'], [.5, '#F8FAFC'], [1, '#64748B']]); c.beginPath(); c.ellipse(seat[0], seat[1], k * .42, k * .16, 0, 0, 7); c.fill();
+    c.strokeStyle = '#334155'; c.lineWidth = 2; c.beginPath(); c.arc(seat[0], seat[1] - k * .15, k * .34, Math.PI * 1.05, Math.PI * 1.95); c.stroke(); }
 }
 function drawFloor(c, T, k, rnd){
   const f = fillR(c, FX0, FZ0, FX1, FZ1, T.fa);
@@ -1280,7 +1297,8 @@ function drawFloor(c, T, k, rnd){
 }
 function plant(c, x, z, k, rnd){ k = KS(x, z); const p = P(x, 0, z); c.fillStyle = rad(c, p[0], p[1], k * .8, [[0, 'rgba(15,23,42,.3)'], [1, 'rgba(15,23,42,0)']]); c.beginPath(); c.ellipse(p[0], p[1], k * .8, k * .3, 0, 0, 7); c.fill();
   c.fillStyle = lin(c, p[0] - k * .4, 0, p[0] + k * .4, 0, [[0, '#9A3412'], [.5, '#C2410C'], [1, '#7C2D12']]); c.beginPath(); c.moveTo(p[0] - k * .45, p[1] - k * .65); c.lineTo(p[0] + k * .45, p[1] - k * .65); c.lineTo(p[0] + k * .32, p[1]); c.lineTo(p[0] - k * .32, p[1]); c.closePath(); c.fill(); c.fillStyle = '#EA580C'; c.fillRect(p[0] - k * .5, p[1] - k * .72, k, k * .12);
-  const greens = ['#15803D', '#16A34A', '#22C55E', '#4ADE80']; for(let i = 0; i < 9; i++){ const a = -Math.PI / 2 + (i - 4) * .32, l = k * (.6 + rnd() * .5); c.fillStyle = greens[i % 4]; c.beginPath(); c.ellipse(p[0] + Math.cos(a) * l * .55, p[1] - k * .75 + Math.sin(a) * l * .55, l * .45, k * .15, a, 0, 7); c.fill(); } }
+  const greens = ['#14532D', '#15803D', '#16A34A', '#22C55E', '#4ADE80']; for(let i = 0; i < 14; i++){ const a = -Math.PI / 2 + (i - 6.5) * .22, l = k * (.45 + rnd() * .7); c.fillStyle = greens[i % greens.length]; c.beginPath(); c.ellipse(p[0] + Math.cos(a) * l * .62, p[1] - k * .85 + Math.sin(a) * l * .5, l * .42, k * .13, a, 0, 7); c.fill(); }
+  c.fillStyle = 'rgba(255,255,255,.22)'; c.beginPath(); c.ellipse(p[0] - k * .12, p[1] - k * 1.15, k * .16, k * .08, -.5, 0, 7); c.fill(); }
 
 /* ---- tables, booths and food ---- */
 function drawTable(c, tb, now){ const k = KS(tb.x, tb.z), T = TH(), p = P(tb.x, 0, tb.z), top = P(tb.x, 1, tb.z), booths = S && S.up.chairs, cloth = S && S.up.decor >= 1, TC = tableCol(tb.i);
@@ -1308,13 +1326,59 @@ function coinPile(c, tb, now){ const k = KS(tb.x, tb.z), q = P(tb.x, 1.05, tb.z 
   c.fillStyle = '#15803D'; rr(c, q[0] - k * .5, q[1] - k * .15, k * .7, k * .32, 3); c.fill(); c.fillStyle = '#4ADE80'; rr(c, q[0] - k * .45, q[1] - k * .12, k * .6, k * .24, 2); c.fill(); c.fillStyle = '#166534'; c.beginPath(); c.arc(q[0] - k * .15, q[1], k * .07, 0, 7); c.fill();
   for(let i = 0; i < n; i++){ const cx = q[0] + k * (.35 + (i % 2) * .12), cy = q[1] + k * .08 - i * k * .07 - b; c.fillStyle = '#B45309'; c.beginPath(); c.ellipse(cx, cy + 2, k * .2, k * .09, 0, 0, 7); c.fill(); c.fillStyle = lin(c, cx - k * .2, 0, cx + k * .2, 0, [[0, '#F59E0B'], [.5, '#FDE68A'], [1, '#F59E0B']]); c.beginPath(); c.ellipse(cx, cy, k * .2, k * .09, 0, 0, 7); c.fill(); }
   if(tb.cash >= 8 && Math.random() < .12) parts.push({x:tb.x + .4 + (Math.random() - .5) * .6, y:1.4 + Math.random() * .6, z:tb.z, vx:0, vy:.4, vz:0, life:.6, t:0, kind:'spark', col:[1, .9, .4], smoke:1}); }
+// painted plates: each dish is drawn at plate size instead of a stretched 24px icon
+function drawDish(c, kind, x, y, s){ c.save(); c.translate(x, y); const u = s;
+  c.fillStyle = 'rgba(15,23,42,.2)'; c.beginPath(); c.ellipse(u * .04, u * .3, u * .38, u * .1, 0, 0, 7); c.fill();
+  const hi = (hx, hy, r) => { c.fillStyle = 'rgba(255,255,255,.45)'; c.beginPath(); c.ellipse(hx, hy, r, r * .45, -.4, 0, 7); c.fill(); };
+  if(kind === 'burger'){
+    c.fillStyle = '#F6C56B'; c.beginPath(); c.ellipse(0, u * .22, u * .42, u * .16, 0, 0, 7); c.fill();
+    c.fillStyle = '#E7A23A'; c.beginPath(); c.ellipse(0, u * .2, u * .42, u * .1, 0, 0, Math.PI); c.fill();
+    c.fillStyle = '#6B2A12'; c.beginPath(); c.ellipse(0, u * .08, u * .36, u * .11, 0, 0, 7); c.fill();
+    c.fillStyle = '#FBBF24'; c.beginPath(); c.ellipse(u * .02, u * .02, u * .38, u * .08, 0, 0, 7); c.fill();
+    c.fillStyle = '#22C55E'; c.beginPath(); c.ellipse(0, -u * .02, u * .4, u * .1, 0, 0, 7); c.fill();
+    c.fillStyle = '#EF4444'; c.beginPath(); c.ellipse(0, -u * .08, u * .3, u * .07, 0, 0, 7); c.fill();
+    c.fillStyle = '#F8C15A'; c.beginPath(); c.ellipse(0, -u * .2, u * .44, u * .2, 0, 0, 7); c.fill();
+    c.fillStyle = '#E8A317'; c.beginPath(); c.ellipse(0, -u * .16, u * .44, u * .08, 0, 0, Math.PI); c.fill();
+    c.fillStyle = '#FFF7D6'; for(let i = -2; i <= 2; i++){ c.beginPath(); c.ellipse(i * u * .12, -u * .28, u * .035, u * .02, .4, 0, 7); c.fill(); }
+    hi(-u * .12, -u * .3, u * .1);
+  } else if(kind === 'salad'){
+    c.fillStyle = '#E0F2FE'; c.beginPath(); c.ellipse(0, u * .12, u * .42, u * .2, 0, 0, 7); c.fill();
+    c.strokeStyle = '#7DD3FC'; c.lineWidth = Math.max(1, u * .04); c.stroke();
+    const leaves = [[-.16, -.02, '#16A34A'], [.05, -.08, '#22C55E'], [.18, .02, '#4ADE80'], [-.02, .06, '#15803D'], [.12, .1, '#86EFAC']];
+    for(const [lx, ly, col] of leaves){ c.fillStyle = col; c.beginPath(); c.ellipse(lx * u, ly * u, u * .16, u * .09, lx, 0, 7); c.fill(); }
+    c.fillStyle = '#EF4444'; c.beginPath(); c.arc(-u * .08, u * .02, u * .06, 0, 7); c.fill();
+    c.fillStyle = '#FBBF24'; c.beginPath(); c.arc(u * .12, -u * .02, u * .045, 0, 7); c.fill();
+    hi(-u * .14, -u * .08, u * .06);
+  } else if(kind === 'pancake'){
+    [[.22, '#D97706'], [.08, '#F59E0B'], [-.06, '#FBBF24']].forEach(([yy, col]) => { c.fillStyle = col; c.beginPath(); c.ellipse(0, yy * u, u * .4, u * .13, 0, 0, 7); c.fill(); c.fillStyle = 'rgba(255,255,255,.28)'; c.beginPath(); c.ellipse(-u * .08, yy * u - u * .03, u * .16, u * .04, 0, 0, 7); c.fill(); });
+    c.fillStyle = '#FEF3C7'; c.fillRect(-u * .08, -u * .22, u * .16, u * .1);
+    c.fillStyle = '#92400E'; c.beginPath(); c.moveTo(-u * .05, -u * .28); c.quadraticCurveTo(u * .02, -u * .02, u * .08, u * .16); c.quadraticCurveTo(-u * .02, u * .05, -u * .1, -u * .2); c.fill();
+  } else if(kind === 'shake'){
+    c.fillStyle = '#E9D5FF'; c.beginPath(); c.moveTo(-u * .22, -u * .05); c.lineTo(u * .22, -u * .05); c.lineTo(u * .16, u * .36); c.lineTo(-u * .16, u * .36); c.closePath(); c.fill();
+    c.fillStyle = '#C084FC'; c.beginPath(); c.moveTo(-u * .2, 0); c.lineTo(u * .2, 0); c.lineTo(u * .15, u * .34); c.lineTo(-u * .15, u * .34); c.closePath(); c.fill();
+    hi(-u * .08, u * .08, u * .05);
+    c.fillStyle = '#F5F3FF'; c.fillRect(-u * .26, -u * .12, u * .52, u * .1);
+    c.fillStyle = '#FFFFFF'; c.beginPath(); c.ellipse(0, -u * .16, u * .2, u * .1, 0, 0, 7); c.fill();
+    c.fillStyle = '#EF4444'; c.beginPath(); c.arc(u * .06, -u * .28, u * .07, 0, 7); c.fill();
+    c.strokeStyle = '#F9A8D4'; c.lineWidth = Math.max(1.5, u * .045); c.beginPath(); c.moveTo(u * .1, -u * .22); c.lineTo(u * .22, -u * .42); c.stroke();
+  } else if(kind === 'pizza'){
+    c.fillStyle = '#FDE68A'; c.beginPath(); c.moveTo(0, u * .38); c.lineTo(-u * .36, -u * .22); c.quadraticCurveTo(0, -u * .4, u * .36, -u * .22); c.closePath(); c.fill();
+    c.fillStyle = '#B45309'; c.beginPath(); c.moveTo(-u * .32, -u * .16); c.quadraticCurveTo(0, -u * .32, u * .32, -u * .16); c.lineTo(u * .28, -u * .08); c.quadraticCurveTo(0, -u * .22, -u * .28, -u * .08); c.fill();
+    for(const [px, py] of [[-.08, .02], [.1, .06], [0, .18], [.12, -.06]]){ c.fillStyle = '#DC2626'; c.beginPath(); c.arc(px * u, py * u, u * .07, 0, 7); c.fill(); c.fillStyle = 'rgba(255,255,255,.35)'; c.beginPath(); c.arc(px * u - u * .02, py * u - u * .02, u * .025, 0, 7); c.fill(); }
+  } else {
+    c.fillStyle = '#C2410C'; c.beginPath(); c.moveTo(-u * .08, u * .28); c.lineTo(u * .34, -u * .08); c.lineTo(-u * .36, u * .02); c.closePath(); c.fill();
+    c.fillStyle = '#FDBA74'; c.beginPath(); c.moveTo(-u * .04, u * .22); c.lineTo(u * .26, -u * .02); c.lineTo(-u * .28, u * .04); c.closePath(); c.fill();
+    c.strokeStyle = '#9A3412'; c.lineWidth = Math.max(1.2, u * .035); c.beginPath(); c.moveTo(-u * .02, u * .2); c.lineTo(u * .22, 0); c.moveTo(-u * .16, u * .1); c.lineTo(u * .1, -u * .02); c.stroke();
+    c.fillStyle = '#FFFFFF'; c.beginPath(); c.ellipse(u * .16, -u * .08, u * .1, u * .06, .3, 0, 7); c.fill();
+  }
+  c.restore(); }
 // a plate with real food art; hot food steams, cold food goes grey, and food shrinks as it's eaten
 function plateAt(c, x, y, z, dishes, s = 1, o = {}){ const p = P(x, y, z), k = KS(x, z) * s, t = performance.now() / 1000;
   c.fillStyle = 'rgba(15,23,42,.18)'; c.beginPath(); c.ellipse(p[0] + 2, p[1] + 3, k * .52, k * .3, 0, 0, 7); c.fill();
   c.fillStyle = lin(c, 0, p[1] - k * .3, 0, p[1] + k * .3, [[0, '#FFFFFF'], [1, '#E2E8F0']]); c.beginPath(); c.ellipse(p[0], p[1], k * .52, k * .31, 0, 0, 7); c.fill(); c.strokeStyle = '#CBD5E1'; c.lineWidth = 1; c.stroke(); c.strokeStyle = 'rgba(148,163,184,.5)'; c.beginPath(); c.ellipse(p[0], p[1], k * .36, k * .2, 0, 0, 7); c.stroke();
   const eat = o.eat === undefined ? 1 : o.eat, heat = o.heat === undefined ? 1 : o.heat;
-  dishes.forEach((d, i) => { const im = imgs['f_' + d], off = dishes.length > 1 ? (i ? .24 : -.24) * k : 0, sz = k * (dishes.length > 1 ? .62 : .82) * (.35 + .65 * eat); if(!im || !im.complete) return;
-    if(heat < .2){ c.save(); c.globalAlpha = .55; c.filter && (c.filter = 'grayscale(.7)'); } c.drawImage(im, p[0] + off - sz / 2, p[1] - sz * .72, sz, sz); if(heat < .2){ c.filter && (c.filter = 'none'); c.restore(); } });
+  dishes.forEach((d, i) => { const off = dishes.length > 1 ? (i ? .24 : -.24) * k : 0, sz = k * (dishes.length > 1 ? .7 : .92) * (.35 + .65 * eat);
+    if(heat < .2){ c.save(); c.globalAlpha = .55; c.filter = 'grayscale(.75)'; } drawDish(c, d, p[0] + off, p[1] - sz * .15, sz); if(heat < .2) c.restore(); });
   if(heat > .5) for(let i = 0; i < 2; i++){ const ph = (t * .9 + i * .5) % 1, sx = p[0] + (i ? k * .12 : -k * .12) + Math.sin(t * 3 + i) * k * .08, sy = p[1] - k * .5 - ph * k * .8; c.strokeStyle = `rgba(255,255,255,${(1 - ph) * .7})`; c.lineWidth = 2; c.beginPath(); c.moveTo(sx, sy + k * .2); c.quadraticCurveTo(sx + k * .1, sy + k * .1, sx, sy); c.quadraticCurveTo(sx - k * .1, sy - k * .1, sx, sy - k * .2); c.stroke(); } }
 
 /* ---- the frame ---- */
@@ -1370,7 +1434,7 @@ function render2d(now){
   else titleScene(c, items, now);
   // chef behind the counter, with a hat
   { const cx = chef.x + (cooking ? Math.sin(now / 200) * .6 : 0), p = P(cx, 0, -6.9);
-    if(sprOK){ botSprite(c, 'chef', chef.e, p[0], p[1], k * 2.9, {seed:2, anim:cooking && !chef.e.em ? 'clap' : null}); const hx = p[0], hy = p[1] - k * 2.9 * .97 * scaleAtY(p[1]); c.fillStyle = '#FFFFFF'; c.strokeStyle = 'rgba(0,0,0,.15)'; c.lineWidth = 1; rr(c, hx - k * .42, hy - k * .1, k * .84, k * .28, k * .06); c.fill(); c.stroke(); c.beginPath(); c.arc(hx - k * .22, hy - k * .22, k * .26, 0, 7); c.arc(hx + k * .22, hy - k * .22, k * .26, 0, 7); c.arc(hx, hy - k * .36, k * .28, 0, 7); c.fill(); }
+    if(sprOK){ botSprite(c, 'chef', chef.e, p[0], p[1], k * 2.9, {seed:2, anim:cooking && !chef.e.em ? 'clap' : null}); chefToque(c, p[0], p[1] - k * 2.9 * .97 * scaleAtY(p[1]), k * scaleAtY(p[1])); }
     else robot(c, p[0], p[1], k * 2.4, '#F97316', {hat:1, apron:1, arms:cooking ? 'wave' : animOf(chef.e), seed:2});
     if(cooking && Math.random() < .35) parts.push({x:1.6 + (Math.random() - .5) * 3.5, y:.9, z:-7.8, vx:(Math.random() - .5) * .4, vy:1.6, vz:0, life:.9, t:0, col:[.85, .85, .9], smoke:1});
     if(cooking && Math.random() < .25) parts.push({x:1.6 + (Math.random() - .5) * 3.5, y:1.1, z:-7.8, vx:(Math.random() - .5) * 3, vy:3, vz:0, life:.4, t:0, kind:'spark', col:[1, .7, .2]}); }
@@ -1448,6 +1512,12 @@ function titleScene(c, items, now){ const k = V.k, tabs = TABLE_POS.slice(0, S ?
   const p = P(HOME[0] - 2, 0, 4.2); items.push({z:4.2, f:() => sprOK ? botSprite(c, S && S.skin || 'classic', idleBot.e, p[0], p[1], k * 3.2, {seed:1, anim:Math.floor(now / 3000) % 2 ? 'wave' : null}) : robot(c, p[0], p[1], k * 2.4, '#F8FAFC', {mb:1, arms:'wave', seed:1})});
 }
 
+function chefToque(c, x, y, k){ c.save(); c.translate(x, y);
+  c.fillStyle = '#F8FAFC'; c.strokeStyle = 'rgba(15,23,42,.2)'; c.lineWidth = Math.max(1, k * .04);
+  rr(c, -k * .48, -k * .02, k * .96, k * .24, k * .08); c.fill(); c.stroke();
+  c.beginPath(); c.moveTo(-k * .36, 0); c.bezierCurveTo(-k * .5, -k * .55, -k * .12, -k * .78, 0, -k * .64); c.bezierCurveTo(k * .16, -k * .82, k * .5, -k * .52, k * .36, 0); c.closePath(); c.fill(); c.stroke();
+  c.strokeStyle = 'rgba(148,163,184,.85)'; c.beginPath(); c.moveTo(-k * .16, -k * .04); c.quadraticCurveTo(-k * .2, -k * .42, 0, -k * .58); c.moveTo(k * .1, -k * .04); c.quadraticCurveTo(k * .18, -k * .4, k * .02, -k * .62); c.stroke();
+  c.fillStyle = 'rgba(255,255,255,.7)'; c.beginPath(); c.ellipse(-k * .1, -k * .4, k * .08, k * .14, -.4, 0, 7); c.fill(); c.restore(); }
 // boss accessories so you can spot them across the room
 function bossHat(c, k, x, y, u, lead){ c.save();
   if(k === 'judge'){ c.fillStyle = lin(c, x - u * .45, 0, x + u * .45, 0, [[0, '#B8860B'], [.5, '#FEF08A'], [1, '#B8860B']]); c.beginPath(); c.moveTo(x - u * .45, y + u * .05); c.lineTo(x - u * .45, y - u * .3); c.lineTo(x - u * .22, y - u * .1); c.lineTo(x, y - u * .42); c.lineTo(x + u * .22, y - u * .1); c.lineTo(x + u * .45, y - u * .3); c.lineTo(x + u * .45, y + u * .05); c.closePath(); c.fill(); c.fillStyle = '#EF4444'; c.beginPath(); c.arc(x, y - u * .08, u * .07, 0, 7); c.fill(); }
@@ -1489,8 +1559,11 @@ function outside(c, place, k, rnd){
     for(let i = 0; i < 40; i++){ const col = ['#F472B6', '#22D3EE', '#FDE047', '#A78BFA'][i % 4]; c.save(); c.shadowColor = col; c.shadowBlur = 8; c.fillStyle = col; c.fillRect(rnd() * W, rnd() * H, k * (.3 + rnd() * .6), 3); c.restore(); } } }
 // the view out the back window
 function skyline(c, r, place, night, t){ c.save(); c.beginPath(); c.rect(r[0], r[1], r[2], r[3]); c.clip(); const b = r[1] + r[3], w = r[2];
-  if(place === 'Bot County'){ c.fillStyle = '#4ADE80'; c.beginPath(); c.moveTo(r[0], b); c.quadraticCurveTo(r[0] + w * .3, b - r[3] * .55, r[0] + w * .6, b - r[3] * .2); c.quadraticCurveTo(r[0] + w * .8, b - r[3] * .45, r[0] + w, b - r[3] * .15); c.lineTo(r[0] + w, b); c.fill();
-    c.fillStyle = '#B91C1C'; c.fillRect(r[0] + w * .62, b - r[3] * .42, w * .12, r[3] * .3); c.beginPath(); c.moveTo(r[0] + w * .6, b - r[3] * .42); c.lineTo(r[0] + w * .68, b - r[3] * .58); c.lineTo(r[0] + w * .76, b - r[3] * .42); c.fill(); }
+  if(place === 'Bot County'){ const sun = night > .35 ? '#FB923C' : '#FDE047'; c.fillStyle = sun; c.beginPath(); c.arc(r[0] + w * .18, r[1] + r[3] * .28, Math.min(11, r[3] * .18), 0, 7); c.fill();
+    const drift = Math.sin(t * .4) * w * .04; c.fillStyle = 'rgba(255,255,255,.8)'; c.beginPath(); c.ellipse(r[0] + w * .7 + drift, r[1] + r[3] * .22, w * .09, r[3] * .07, 0, 0, 7); c.ellipse(r[0] + w * .78 + drift, r[1] + r[3] * .2, w * .06, r[3] * .055, 0, 0, 7); c.fill();
+    c.fillStyle = '#4ADE80'; c.beginPath(); c.moveTo(r[0], b); c.quadraticCurveTo(r[0] + w * .3, b - r[3] * .55, r[0] + w * .6, b - r[3] * .2); c.quadraticCurveTo(r[0] + w * .8, b - r[3] * .45, r[0] + w, b - r[3] * .15); c.lineTo(r[0] + w, b); c.fill();
+    c.fillStyle = '#86EFAC'; c.beginPath(); c.moveTo(r[0], b); c.quadraticCurveTo(r[0] + w * .25, b - r[3] * .28, r[0] + w * .5, b); c.fill();
+    c.fillStyle = '#B91C1C'; c.fillRect(r[0] + w * .62, b - r[3] * .42, w * .12, r[3] * .3); c.beginPath(); c.moveTo(r[0] + w * .6, b - r[3] * .42); c.lineTo(r[0] + w * .68, b - r[3] * .58); c.lineTo(r[0] + w * .76, b - r[3] * .42); c.fill(); c.fillStyle = '#BFDBFE'; c.fillRect(r[0] + w * .645, b - r[3] * .32, w * .03, r[3] * .08); c.fillRect(r[0] + w * .69, b - r[3] * .32, w * .03, r[3] * .08); }
   else { const tall = place === 'Botropolis' ? .95 : .6, n = place === 'Botropolis' ? 9 : 7; for(let i = 0; i < n; i++){ const bw = w / n, h = r[3] * tall * (.35 + ((i * 37) % 10) / 15), x = r[0] + i * bw;
       c.fillStyle = place === 'Botropolis' ? '#1E1B4B' : (night > .5 ? '#1E293B' : '#64748B'); c.fillRect(x + 1, b - h, bw - 2, h);
       for(let yy = b - h + 4; yy < b - 3; yy += 6) for(let xx = x + 3; xx < x + bw - 4; xx += 5) if(((xx * 7 + yy * 3) | 0) % 3 === 0){ c.fillStyle = place === 'Botropolis' ? ['#F472B6', '#22D3EE', '#FDE047'][((xx + yy) | 0) % 3] : (night > .3 ? '#FDE68A' : 'rgba(255,255,255,.5)'); c.fillRect(xx, yy, 2, 2); } }
